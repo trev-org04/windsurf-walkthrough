@@ -8,6 +8,7 @@
 - [Run and Debug](#run-and-debug)
 - [Bottom Panel](#bottom-panel)
 - [Common IDE Tasks](#common-ide-tasks)
+- [Editor Tips & Tricks](#editor-tips-tricks)
 - [Common Windsurf Keyboard Shortcuts](#common-windsurf-keyboard-shortcuts)
 - [Windsurf Settings](#windsurf-settings)
 
@@ -126,12 +127,14 @@ You can use the built-in Git features in the Source Control tab in the editor to
 You can use Workflows to accelerate your Git workflows. Here are some example Workflows:
 
 **Stage and Commit Changes**
-```markdown
+
+````markdown
 ## Workflow: Stage and Commit Changes
 
 **Trigger:** When developer requests to commit via prompt or context menu
 
 **Steps:**
+
 1. Scan the working directory for unstaged and staged files.
 2. If no files are staged, prompt:  
    "_No files are staged. Would you like me to stage all modified files?_"
@@ -142,20 +145,23 @@ You can use Workflows to accelerate your Git workflows. Here are some example Wo
    - Example: `feat(user-profile): add avatar upload logic`
 5. Confirm with the developer:
    - "_Use this commit message? [Y/n]_"
-6. Execute:  
+6. Execute:
    ```bash
    git commit -m "<generated-message>"
-```
+   ```
+````
 
 ---
 
 **Create Pull Requests**
+
 ```markdown
 ## Workflow: Create Pull Request
 
 **Trigger:** Developer pushes a feature branch and requests a PR
 
 **Steps:**
+
 1. Detect current branch and its target base (default to `develop` or `main`).
 2. Summarize all changes between source and target branch:
    - Key features added, bugs fixed, files changed
@@ -171,12 +177,14 @@ You can use Workflows to accelerate your Git workflows. Here are some example Wo
 ---
 
 **Merge Branches**
-```markdown
+
+````markdown
 ## Workflow: Merge Branches
 
 **Trigger:** Developer initiates merge request in IDE
 
 **Steps:**
+
 1. Confirm target and source branch:
    - "_Merge `feature/x` into `develop`?_"
 2. Fetch and rebase `feature/x` against `develop` (if rebase strategy is preferred).
@@ -189,33 +197,42 @@ You can use Workflows to accelerate your Git workflows. Here are some example Wo
    ```bash
    git merge feature/x
    git branch -d feature/x
-```
+   ```
+````
 
 ---
 
 **Generate Changelogs**
-```markdown
+
+````markdown
 ## Workflow: Generate Changelogs
 
 **Trigger:** Developer prepares a release or requests changelog generation
 
 **Steps:**
+
 1. Determine the commit range (e.g., last tag to HEAD, or last N PRs).
 2. Parse commit messages using Conventional Commits or PR titles.
 3. Categorize entries:
    - `Features`, `Fixes`, `Chores`, `Docs`, etc.
 4. Format the changelog in Markdown:
+
    ```markdown
    ## [1.4.0] - 2025-06-20
+
    ### Added
+
    - Add support for dark mode in settings panel
 
    ### Fixed
+
    - Resolve crash when syncing large files
 
    ### Chores
+
    - Upgrade dependency: Axios 1.2.4 → 1.3.0
    ```
+````
 
 ---
 
@@ -227,15 +244,25 @@ The editor has a `Run and Debug` tab that allows you to run and debug code. You 
 
 ---
 
+### Editor Tips & Tricks
+
+#### Pasting Links in Markdown Files
+
+When pasting a link in a markdown file, you can use the dropdown that shows up next to the link to choose your format options.
+
+![Paste Link](../assets/editor/editor-format-insert-link.png)
+
+---
+
 ### Common Windsurf Keyboard Shortcuts
 
-| Action                 | Windsurf (MacOS)       | Windsurf (Windows/Linux) | Jetbrains (MacOS)           | Jetbrains (Windows/Linux)    |
-|------------------------|------------------------|---------------------------|------------------------------|-------------------------------|
-| Open Cascade Panel     | *Cmd ⌘ + L*            | *Ctrl + L*                | *Cmd ⌘ + Shift + L*         | *Ctrl + Shift + L*           |
-| Invoke Command         | *Cmd ⌘ + I*            | *Ctrl + I*                | *Cmd ⌘ + I*                  | *Ctrl + I*                    |
-| Accept Autocomplete    | *Tab*                  | *Tab*                     | *Tab*                        | *Tab*                         |
-| Accept All Diffs       | *Cmd ⌘ + Return*       | *Ctrl + Enter*            | *Custom*                     | *Custom*                      |
-| Reject All Diffs       | *Cmd ⌘ + Delete*       | *Ctrl + Backspace*        | *Custom*                     | *Custom*                      |
+| Action              | Windsurf (MacOS) | Windsurf (Windows/Linux) | Jetbrains (MacOS)   | Jetbrains (Windows/Linux) |
+| ------------------- | ---------------- | ------------------------ | ------------------- | ------------------------- |
+| Open Cascade Panel  | _Cmd ⌘ + L_      | _Ctrl + L_               | _Cmd ⌘ + Shift + L_ | _Ctrl + Shift + L_        |
+| Invoke Command      | _Cmd ⌘ + I_      | _Ctrl + I_               | _Cmd ⌘ + I_         | _Ctrl + I_                |
+| Accept Autocomplete | _Tab_            | _Tab_                    | _Tab_               | _Tab_                     |
+| Accept All Diffs    | _Cmd ⌘ + Return_ | _Ctrl + Enter_           | _Custom_            | _Custom_                  |
+| Reject All Diffs    | _Cmd ⌘ + Delete_ | _Ctrl + Backspace_       | _Custom_            | _Custom_                  |
 
 ---
 
